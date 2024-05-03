@@ -36,12 +36,14 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 	
-listen 19018-lb-01
-        bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/www.niitetteh5.tech/niitetteh5.pem
-        mode http
-        redirect scheme https code 301 if !{ ssl_fc }
-        balance roundrobin
+frontend niitetteh5.tech
+	bind 0:80
+        bind 0:443 ssl crt /etc/ssl/private/flexy24.tech.pem
+        http-request redirect scheme https code 301 unless { ssl_fc }
         option forwardfor
-        server 19018-web-01 44.210.150.159:80 check
-        server 19018-web-02 35.173.47.15:80 check
+        default_backend flexy24.tech.tech_backend
+	
+backend niitetteh5.tech_backend
+        balance roundrobin
+	server 161704-web-01 35.174.208.188:80 check
+	server 161704-web-02 54.236.16.246:80 check
