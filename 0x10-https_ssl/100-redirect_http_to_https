@@ -45,7 +45,7 @@ frontend niitetteh5-frontend-https
         http-request set-header X-Forwarded-Proto https
         default_backend niitetteh5-backend
 
-backend clickviral-backend
+backend niitetteh5-backend
         balance roundrobin
         server 530361-web-01 52.91.132.181:80 check
         server 530361-web-02 18.214.87.183:80 check
