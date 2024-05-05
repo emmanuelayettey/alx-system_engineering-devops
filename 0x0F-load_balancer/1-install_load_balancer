@@ -40,8 +40,8 @@ frontend niitetteh5-tech-frontend
 
 backend niitetteh-tech-backend
     balance roundrobin
-    server 151666-web-01 100.25.190.21:80 check
-    server 151666-web-02 54.160.77.90:80 check
+    server 530361-web-01 52.91.132.181:80  check
+    server 530361-web-02 18.214.87.183:80 check
 "
 
 # shellcheck disable=SC2154
